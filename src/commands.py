@@ -134,52 +134,45 @@ def start():
         for instance in __fallback:
             taskkill(instance=instance)
 
-
 def commandhandler(inpt):
-    
-    if inpt == '' or inpt == None:
-        print(warn + 'Please enter a command!')
 
+    indicator = ('!', '?')
+
+    if not inpt or inpt == None:
+        print(warn + 'Please enter a command!')
+        return
+        
     __inpt = inpt.split(' ')
     del inpt
 
-    #: check if command indicator is given
-    if __inpt[0][0] == '!' or __inpt[0][0] == '?': 
-
-        #: check remaining characters of list item
-        if __inpt[0][1:] == 'a' or __inpt[0][1:] == 'add':
-
-            if '/' in __inpt[1]:
-                separated = __inpt[1].replace('/', ' ').split()
-                for i in separated:
-                    add(i)
-
-            else:
-                add(__inpt[1])
-
-        #: check remaining characters of list item
-        if __inpt[0][1:] == 'r' or __inpt[0][1:] == 'remove':
-            
-            if '/' in __inpt[1]:
-                separated = __inpt[1].replace('/', ' ').split()
-                for i in separated:
-                    remove(i)
-                
-            else:
-                remove(__inpt[1])
-        
-        #: check remaining characters of list item
-        if __inpt[0][1:] == 'c' or __inpt[0][1:] == 'clear':
-            clear()
-
-        #: check remaining characters of list item
-        if __inpt[0][1:] == 's' or __inpt[0][1:] == 'start':
-            start()
-
-        #: check remaining characters of list item
-        if __inpt[0][1:] == 'exit':
-            sys.exit(2)
-
-    else:
+    if __inpt[0][0] not in indicator:
         print(warn + 'Please use a valid command (prefix)! View the help panel for all commands (start argument -h).')
-        del __inpt
+        return
+
+    command = __inpt[0][1:]
+
+    if len(__inpt) > 1:
+        argument = __inpt[1]
+
+    if command == 'a' or command == 'add':
+        if '/' in argument:
+            for i in argument.replace('/', ' ').split():
+                add(i)
+        else:
+            add(argument)
+
+    if command == 'r' or command == 'remove':
+        if '/' in argument:
+            for i in argument.replace('/', ' ').split():
+                remove(i)
+        else:
+            remove(argument)
+
+    if command == 'c' or command == 'clear':
+        clear()
+
+    if command == 's' or command == 'start':
+        start()
+
+    if command == 'exit':
+        sys.exit(2)
