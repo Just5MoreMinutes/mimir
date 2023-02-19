@@ -1,2 +1,9 @@
+#: folders
+batch/sounds/
+
+#: specific file types
 *.json
 *.txt
+
+#: specific files
+test.py

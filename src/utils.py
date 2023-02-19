@@ -4,7 +4,9 @@
 import os
 import sys
 import subprocess
-# from psutil import *
+from subprocess import Popen
+
+import time
 
 from styling import *
 
@@ -20,3 +22,12 @@ def taskkill(instance):
         print(info + 'Killing process '+instance+'...')
         subprocess.run(['taskkill', '/F', '/IM', instance], stdout=dnull, stderr=dnull)
         print(success + 'Killed process '+instance+' successfully!')
+
+def timer(__file, __cwd, __sp, __bp):
+    while True:
+        time.sleep(__sp) # -> studying period
+        play_sound = Popen(__file, cwd=__cwd)
+        stdout, stderr = play_sound.communicate()
+        time.sleep(__bp) # -> break period
+        play_sound = Popen(__file, __cwd)
+        stdout, stderr = play_sound.communicate()

@@ -3,12 +3,14 @@
 #===============#
 import sys
 import os
+from   subprocess import Popen
 
 import json
 import re
+import time
 
-from styling import *
-from utils import taskkill
+from   styling    import *
+from   utils      import taskkill, timer
 
 
 #===============#
@@ -134,6 +136,25 @@ def start():
         for instance in __fallback:
             taskkill(instance=instance)
 
+def pomodoro(t):
+
+    S_PERIOD = int(t[0])
+    B_PERIOD = int(t[1])
+
+    print(type(S_PERIOD))
+    print(type(B_PERIOD))
+
+    print(info + 'Do you want to automatically block all distractions in your list while the timer is active? (y/n)')
+    __confirm = input('├ ')
+
+    __cwd = os.getcwd() + '\\batch'
+    Sound = os.path.join(__cwd, 'play_sound.bat')
+
+    if __confirm.lower() == 'y' or __confirm.lower() == 'yes':
+        start(); timer(Sound, __cwd, S_PERIOD, B_PERIOD)
+    else: timer(Sound, __cwd, S_PERIOD, B_PERIOD)
+
+
 def commandhandler(inpt):
 
     indicator = ('!', '?')
@@ -174,5 +195,18 @@ def commandhandler(inpt):
     if command == 's' or command == 'start':
         start()
 
+    if command == 'p' or command == 'pomodoro':
+        if '/' not in argument and '|' in argument:
+            argument = argument.replace('|', ' ').split()
+        else:
+            argument = argument.replace('/', ' ').split()
+            pomodoro(argument)
+
     if command == 'exit':
         sys.exit(2)
+
+def help():
+    ...
+
+def settings():
+    ...
