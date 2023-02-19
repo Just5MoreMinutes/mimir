@@ -3,15 +3,13 @@
 #===============#
 import sys
 sys.dont_write_bytecode = True
-
 import os
 
 import getopt
-
 import json
 
-from styling import *
-from commands import commandhandler
+from   styling  import *
+from   commands import commandhandler
 
 #===============#
 # MAIN          #

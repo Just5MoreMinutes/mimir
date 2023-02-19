@@ -12,7 +12,6 @@ import time
 from   styling    import *
 from   utils      import taskkill, timer
 
-
 #===============#
 # GLOB VARIABLES#
 #===============#

@@ -4,11 +4,11 @@
 import os
 import sys
 import subprocess
-from subprocess import Popen
+from   subprocess import Popen
 
 import time
 
-from styling import *
+from   styling    import *
 
 #===============#
 # MAIN          #
@@ -29,5 +29,4 @@ def timer(__file, __cwd, __sp, __bp):
         play_sound = Popen(__file, cwd=__cwd)
         stdout, stderr = play_sound.communicate()
         time.sleep(__bp) # -> break period
-        play_sound = Popen(__file, __cwd)
         stdout, stderr = play_sound.communicate()

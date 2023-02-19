@@ -1,3 +1,6 @@
+#===============#
+# MAIN          #
+#===============#
 def rgb(r,g,b,bg=False):
     """
     Can set text to any color on the rgb spectrum.
@@ -6,8 +9,9 @@ def rgb(r,g,b,bg=False):
     """
     return '\033[{};2;{};{};{}m'.format(48 if bg else 38,r,g,b)
 
-
-
+#===============#
+# PRESETS       #
+#===============#
 reset = '\033[0m'
 err = '│ ' + rgb(153, 0, 0) + 'ERROR' + reset + ': '
 suc = rgb(0, 179, 0)
