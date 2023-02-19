@@ -2,7 +2,7 @@
 # IMPORTS       #
 #===============#
 import sys
-sys.dont_write_bytecode = True
+sys.dont_write_bytecode = True # -> evade creation of pycache
 import os
 
 import getopt
