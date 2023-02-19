@@ -38,6 +38,6 @@ def start(argv):
         pass
 
 
-
+#: start
 if __name__ == '__main__':
     start(sys.argv[1:])
