@@ -8,8 +8,9 @@ import os
 import getopt
 import json
 
-from   styling  import *
-from   commands import commandhandler
+from   styling           import *
+from   commands          import commandhandler
+from   settings.settings import settings_handler
 
 #===============#
 # MAIN          #
@@ -19,8 +20,13 @@ def start(argv):
     #: check if user requested help
     if '-h' in argv or '--help' in argv:
 
-        #: display help
         print(info + 'HELP PAGE')
+
+    #: check if user opened settings
+    elif '-s' in argv or '--settings' in argv:
+
+        print(info + 'SETTINGS')
+        settings_handler()
 
     else:
         while True:

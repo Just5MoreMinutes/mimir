@@ -10,12 +10,12 @@ import re
 import time
 
 from   styling    import *
-from   utils      import taskkill, timer
+from   utils.utils      import taskkill, timer
 
 #===============#
-# GLOB VARIABLES#
+# GLOBAL VARS   #
 #===============#
-
+PREFERENCES = {}
 
 #===============#
 # MAIN          #
@@ -97,7 +97,7 @@ def start():
     elif __confirm.lower() in ('n', 'no'):
         print(info + 'Process will not be started. Continuing...')
         return
-    
+
     del __confirm
 
     with open('blocked.json', 'r') as sjf:
