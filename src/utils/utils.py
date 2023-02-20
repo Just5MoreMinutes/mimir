@@ -30,6 +30,3 @@ def timer(__file, __cwd, __sp, __bp):
         stdout, stderr = play_sound.communicate()
         time.sleep(__bp) # -> break period
         stdout, stderr = play_sound.communicate()
-
-def test(x):
-    print(x)
