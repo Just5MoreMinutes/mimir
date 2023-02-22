@@ -12,15 +12,17 @@ def rgb(r,g,b,bg=False):
 #===============#
 # PRESETS       #
 #===============#
-reset = '\033[0m'
-err = '│ ' + rgb(153, 0, 0) + 'ERROR' + reset + ': '
-suc = rgb(0, 179, 0)
-info = '│ ' + rgb(230, 230, 0) + 'INFO' + reset + ': '
-warn = '│ ' + rgb(255, 117, 26) + 'WARN' + reset + ': '
-success = '│ ' + rgb(51, 204, 51) + 'SUCCESS' + reset + ': '
-line = rgb(179, 204, 255)
+on        = rgb(0, 204, 0)
+off       = rgb(255, 0, 0)
+reset     = '\033[0m'
+err       = '│ ' + rgb(153, 0, 0) + 'ERROR' + reset + ': '
+suc       = rgb(0, 179, 0)
+info      = '│ ' + rgb(230, 230, 0) + 'INFO' + reset + ': '
+warn      = '│ ' + rgb(255, 117, 26) + 'WARN' + reset + ': '
+success   = '│ ' + rgb(51, 204, 51) + 'SUCCESS' + reset + ': '
+line      = rgb(179, 204, 255)
 highlight = rgb(102, 0, 102)
-prefix = rgb(89, 89, 89)
-gs = rgb(128, 128, 255)
+prefix    = rgb(89, 89, 89)
+gs        = rgb(128, 128, 255)
 file_high = rgb(0, 179, 179)
-bold = '\x1b[1m'
+bold      = '\x1b[1m'
