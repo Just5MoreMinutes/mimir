@@ -2,8 +2,8 @@
 batch/sounds/
 
 #: specific file types
-*.json
 *.txt
 
 #: specific files
 test.py
+blocked.json
