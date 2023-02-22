@@ -1,5 +1,5 @@
 @echo off
-set "file=sounds/alarm.mp3"
+set file=sounds/alarm.mp3
 ( echo Set Sound = CreateObject("WMPlayer.OCX.7"^)
   echo Sound.URL = "%file%"
   echo Sound.Controls.play
