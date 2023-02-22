@@ -79,7 +79,7 @@ def reset(pref):
     }
     pref = _default
 
-def settings_handler():
+def settings_cmd_handler():
     print(info + 'Please select what you want to do:\n│ [d] - Display current preferences\n│ [m] - Modify preferences\n│ [r] - Reset preferences\n│ [e] Exit\n│ ')
     __selection = input('├ ')
 
@@ -98,3 +98,15 @@ def settings_handler():
     
     if __selection.lower() == 'e':
         sys.exit(2)
+
+def settings_handler(pref: dict):
+
+    pref_list = []
+    keys = pref.keys()
+
+    for key in keys:
+        pref_list.append([key, pref[key]])
+
+    for item in pref_list:
+        i = pref_list.index(item)
+        pref_list[i][0](pref_list[i][1])    
